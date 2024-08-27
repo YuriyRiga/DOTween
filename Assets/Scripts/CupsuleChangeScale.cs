@@ -1,13 +1,13 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public class Cupsule : Objects
+public class CupsuleChangeScale : TweenObject
 {
     [SerializeField] private float _scale;
 
     protected override void Start()
     {
-        SetTween(transform.DOScale(Vector3.one * _scale, Duration));
+        AnimateScale(_scale);
         base.Start();
     }
 }

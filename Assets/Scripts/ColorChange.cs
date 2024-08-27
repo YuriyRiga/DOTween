@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class ChangeColor : Objects
+public class ColorChange : TweenObject
 {
     [SerializeField] private Material _material;
     [SerializeField] private Color _color;

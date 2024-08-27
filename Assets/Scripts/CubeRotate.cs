@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class Cube : Objects
+public class CubeRotate : TweenObject
 {
     [SerializeField] private Vector3 _rotation;
-    
+
     protected override void Start()
     {
-        SetTween(transform.DORotate(_rotation, Duration, RotateMode.FastBeyond360));
+        AnimateRotation(_rotation);
         base.Start();
     }
 }

@@ -1,7 +1,6 @@
-﻿using DG.Tweening;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class SuperCube : Objects
+public class SuperCube : TweenObject
 {
     [SerializeField] private Vector3 _position;
     [SerializeField] private Vector3 _rotation;
@@ -9,11 +8,11 @@ public class SuperCube : Objects
 
     protected override void Start()
     {
-        SetTween(transform.DOMove(_position, Duration));
+        AnimateMovement(_position);
         base.Start();
-        SetTween(transform.DORotate(_rotation, Duration, RotateMode.FastBeyond360));
+        AnimateRotation(_rotation);
         base.Start();
-        SetTween(transform.DOScale(Vector3.one * _scale, Duration));
+        AnimateScale(_scale);
         base.Start();
     }
 }

@@ -1,7 +1,7 @@
 ﻿using DG.Tweening;
 using UnityEngine;
 
-public abstract class Objects : MonoBehaviour
+public abstract class TweenObject : MonoBehaviour
 {
     [SerializeField] private float _duration;
     [SerializeField] private int _repeats;
@@ -19,8 +19,18 @@ public abstract class Objects : MonoBehaviour
         _tween.SetLoops(_repeats, _loopType);
     }
 
-    protected void SetTween(Tween tween)
+    protected void AnimateMovement(Vector3 position)
     {
-        _tween = tween;
+        _tween = transform.DOMove(position, _duration);
+    }
+
+    protected void AnimateRotation(Vector3 rotation)
+    {
+        _tween = transform.DORotate(rotation, _duration, RotateMode.FastBeyond360);
+    }
+
+    protected void AnimateScale(float scale)
+    {
+        _tween = transform.DOScale(Vector3.one * scale, _duration);
     }
 }

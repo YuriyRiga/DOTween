@@ -2,7 +2,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class TextChange : Objects
+public class TextChange : TweenObject
 {
     [SerializeField] private Text _textUI;
     [SerializeField] private string _text1;
