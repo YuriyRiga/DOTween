@@ -1,13 +1,11 @@
-using DG.Tweening;
 using UnityEngine;
 
 public class SphereMove : TweenObject
 {
     [SerializeField] private Vector3 _position;
 
-    protected override void Start()
+    private void Start()
     {
         AnimateMovement(_position);
-        base.Start();
     }
 }

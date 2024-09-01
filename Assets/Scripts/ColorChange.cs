@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using DG.Tweening;
 
-public class ColorChange : TweenObject
+public class ColorChange : MonoBehaviour
 {
     [SerializeField] private Material _material;
     [SerializeField] private Color _color;
+    [SerializeField] private float _duration;
+    [SerializeField] private int _repeats;
+    [SerializeField] private LoopType _loopType;
 
     private Color _originalColor = Color.red;
 
-    protected override void Start()
+    private void Start()
     {
         _material.color = _originalColor;
 
         Sequence sequence = DOTween.Sequence();
 
-        sequence.Append(_material.DOColor(_color, Duration));
-        sequence.Append(_material.DOColor(_originalColor, Duration));
+        sequence.Append(_material.DOColor(_color, _duration));
+        sequence.Append(_material.DOColor(_originalColor, _duration));
         sequence.SetEase(Ease.Linear);
-        sequence.SetLoops(Repeats,Loop);
+        sequence.SetLoops(_repeats, _loopType);
     }
 }
