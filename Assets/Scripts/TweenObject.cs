@@ -7,29 +7,11 @@ public abstract class TweenObject : MonoBehaviour
     [SerializeField] private int _repeats;
     [SerializeField] private LoopType _loopType;
 
-    private Tween _tween;
-
-    protected void AnimateMovement(Vector3 position)
+    protected float Duration => _duration;
+    
+    protected void AnimateLoop(Tween tween)
     {
-        _tween = transform.DOMove(position, _duration);
-        AnimateLoop();
-    }
-
-    protected void AnimateRotation(Vector3 rotation)
-    {
-        _tween = transform.DORotate(rotation, _duration, RotateMode.FastBeyond360);
-        AnimateLoop();
-    }
-
-    protected void AnimateScale(float scale)
-    {
-        _tween = transform.DOScale(Vector3.one * scale, _duration);
-        AnimateLoop();
-    }
-
-    private void AnimateLoop()
-    {
-        _tween.SetEase(Ease.Linear);
-        _tween.SetLoops(_repeats, _loopType);
+        tween.SetEase(Ease.Linear);
+        tween.SetLoops(_repeats, _loopType);
     }
 }
